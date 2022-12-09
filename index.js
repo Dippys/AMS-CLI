@@ -57,7 +57,7 @@ function init() {
     console.log('Please wait...');
     console.log('='.repeat(67));
     // check for updates
-    https.get('https://raw.githubusercontent.com/Dippys/AMS-CLI/main/package.json?token=GHSAT0AAAAAAB4CYTACUE7ZQKYR7GMPS4LSY4TL2IA', (res) => {
+    https.get('https://raw.githubusercontent.com/Dippys/AMS-CLI/main/package.json', (res) => {
         let data = '';
         res.on('data', (chunk) => {
             data += chunk;
