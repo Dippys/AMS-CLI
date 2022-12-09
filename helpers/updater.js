@@ -8,6 +8,13 @@ const downloadAndExtractZip = async () => {
     const url = 'https://github.com/Dippys/AMS-CLI/archive/refs/heads/main.zip';
     const filePath = './cache/main.zip';
     const extractedPath = './cache/';
+
+    // Step 0: Delete the cache folder and create a new one
+    if (fs.existsSync('./cache')) {
+        fs.rmSync('./cache', { recursive: true });
+    }
+
+    fs.mkdirSync('./cache');
   
     // Step 1: Download the zip file
     const response = await axios.get(url, { responseType: 'arraybuffer' });
@@ -39,10 +46,11 @@ const downloadAndExtractZip = async () => {
 
     // move all the files from the cache folder to the root folder even if they already exist
     fs.readdirSync('./cache').forEach(file => {
-        // ignore all files that start with a dot
-        if (!file.startsWith('.')) {
-            fs.renameSync(`./cache/${file}`, `./${file}`, { overwrite: true });
+        // if the file already exists, delete it
+        if (fs.existsSync(`./${file}`)) {
+            fs.rmSync(`./${file}`, { recursive: true });
         }
+        fs.renameSync(`./cache/${file}`, `./${file}`);
     });
 
     // delete the contents of the cache folder (except the .gitkeep file)
