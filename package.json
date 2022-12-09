@@ -1,0 +1,22 @@
+{
+  "name": "ams-cli",
+  "version": "1.0.0",
+  "description": "Arcturus Emulator CLI Project for Auto-Updating and Plugin Repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dippys/AMS-CLI.git"
+  },
+  "author": "Dippy@8950",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dippys/AMS-CLI/issues"
+  },
+  "homepage": "https://github.com/Dippys/AMS-CLI#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
