@@ -6,7 +6,7 @@ on:
 
 jobs:
   sync:
-    runs-on: runner
+    runs-on: self-hosted
     name: Git Repo Sync
     steps:
     - uses: actions/checkout@v2
