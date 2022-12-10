@@ -53,7 +53,6 @@ const downloadAndExtractZip = async () => {
     const filePath = './cache/main.zip';
     const extractedPath = './cache/';
 
-
     // Step 0: Delete the cache folder and create a new one
     if (fs.existsSync('./cache')) {
         fs.rmSync('./cache', { recursive: true });

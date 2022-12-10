@@ -4,7 +4,7 @@
   "description": "Arcturus Emulator CLI Project for Auto-Updating and Plugin Repository",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
