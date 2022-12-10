@@ -10,5 +10,6 @@ on:
 jobs:
   publish-npm:
     runs-on: self-hosted
+    timeout-minutes: 1
     steps:
       - run: npm publish
