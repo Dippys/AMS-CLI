@@ -16,6 +16,30 @@ $$ |  $$ |$$ | \\_/ $$ |\\$$$$$$  |      \\$$$$$$  |$$$$$$$$\\ $$$$$$\\
                                                              ${data.version}
 `;
 
+
+const dots = ['.', '..', '...'];
+
+// Set the initial position of the loading bar
+let i = 0;
+
+// Create a function to animate the loading bar
+function animate() {
+  // Clear the current line of output in the console
+  process.stdout.clearLine();
+
+  // Move the cursor back to the beginning of the line
+  process.stdout.cursorTo(0);
+
+  // Write the loading bar to the console
+  process.stdout.write(`Loading${dots[i % dots.length]}`);
+
+  // Increment the position of the loading bar
+  i++;
+
+  // Use setTimeout to schedule the next animation frame
+  setTimeout(animate, 100);
+}
+
 const init = async () => {
 
     
@@ -52,14 +76,7 @@ const downloadAndExtractZip = async () => {
     const filePath = './cache/main.zip';
     const extractedPath = './cache/';
 
-    // loading bar that goes back and forth
-    const loadingBar = ['|', '/', '-', '\\'];
-    let i = 0;
-    const loading = setInterval(() => {
-        process.stdout.write('\r' + loadingBar[i++]);
-        i &= loadingBar.length - 1;
-    }, 100);
-    
+    animate();
 
     // Step 0: Delete the cache folder and create a new one
     if (fs.existsSync('./cache')) {
