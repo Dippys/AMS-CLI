@@ -53,28 +53,6 @@ const downloadAndExtractZip = async () => {
     const filePath = './cache/main.zip';
     const extractedPath = './cache/';
 
-    // do a
-    // =
-    // ==
-    // ===
-    // ==== animation
-    // for the length of 67 characters then loop back to the beginning
-
-    // create a loading screen
-    const char = ['=', '==', '===', '===='];
-    let i = 0;
-    const interval = setInterval(() => {
-        console.clear();
-        console.log(logo + char[i].repeat(67));
-        console.log('Checking for updates...');
-        console.log('Please wait...');
-        console.log('='.repeat(67));
-        i++;
-        if (i === char.length) {
-            i = 0;
-        }
-    }, 1000);
-    
 
     // Step 0: Delete the cache folder and create a new one
     if (fs.existsSync('./cache')) {
