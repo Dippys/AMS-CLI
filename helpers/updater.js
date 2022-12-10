@@ -2,9 +2,8 @@ const fs = require('fs');
 const https = require('https');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
-const data = require('../package.json');
+const data = require(__dirname + '/../package.json');
 const main = require('./main');
-
 const logo = ` $$$$$$\\  $$\\      $$\\  $$$$$$\\         $$$$$$\\  $$\\       $$$$$$\\ 
 $$  __$$\\ $$$\\    $$$ |$$  __$$\\       $$  __$$\\ $$ |      \\_$$  _|
 $$ /  $$ |$$$$\\  $$$$ |$$ /  \\__|      $$ /  \\__|$$ |        $$ |  
@@ -20,7 +19,7 @@ $$ |  $$ |$$ | \\_/ $$ |\\$$$$$$  |      \\$$$$$$  |$$$$$$$$\\ $$$$$$\\
 const init = async () => {
 
     
-    const packageJson = fs.readFileSync('package.json', 'utf8');
+    const packageJson = fs.readFileSync(__dirname + '/../package.json', 'utf8');
     const { version } = JSON.parse(packageJson);
 
     // create a loading screen

@@ -1,8 +1,13 @@
 
-const data = require('../package.json');
+const data = require(__dirname + '/../package.json');
 const fs = require('fs');
 const rl = require('readline-sync');
-const commands = fs.realpathSync('./commands');
+
+// get the nodejs base directory
+const baseDir = process.cwd();
+console.log(baseDir);
+
+const commands = fs.realpathSync(__dirname + '/../commands');
 
 
 const logo = ` $$$$$$\\  $$\\      $$\\  $$$$$$\\         $$$$$$\\  $$\\       $$$$$$\\ 

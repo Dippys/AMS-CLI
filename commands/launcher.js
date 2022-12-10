@@ -1,4 +1,4 @@
-const launcher = require("../helpers/launcher");
+const launcher = require(__dirname + "/../helpers/launcher");
 
 function init(){
     launcher.execute();
