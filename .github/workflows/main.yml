@@ -8,7 +8,6 @@ jobs:
   sync:
     runs-on: self-hosted
     name: Git Repo Sync
-    timeout-minutes: 1
     steps:
     - uses: actions/checkout@v2
       with:
