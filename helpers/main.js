@@ -2,8 +2,7 @@
 const data = require('../package.json');
 const fs = require('fs');
 const rl = require('readline-sync');
-const root = fs.realpathSync(process.cwd());
-const commands = fs.realpathSync(root + '/commands');
+const commands = fs.realpathSync('./commands');
 
 
 const logo = ` $$$$$$\\  $$\\      $$\\  $$$$$$\\         $$$$$$\\  $$\\       $$$$$$\\ 
