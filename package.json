@@ -1,6 +1,6 @@
 {
   "name": "ams-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Arcturus Emulator CLI Project for Auto-Updating and Plugin Repository",
   "main": "index.js",
   "scripts": {
