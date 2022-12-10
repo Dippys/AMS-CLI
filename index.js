@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const updater = require('./helpers/updater');
 const fs = require('fs');
 
