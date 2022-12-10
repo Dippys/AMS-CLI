@@ -3,12 +3,20 @@
   "version": "1.0.3",
   "description": "Arcturus Emulator CLI Project for Auto-Updating and Plugin Repository",
   "main": "index.js",
+  "funding": "https://paypal.me/ahmedkhidr",
   "scripts": {
     "start": "node index.js"
+  },
+  "bin": {
+    "ams-cli": "index.js",
+    "ams": "index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dippys/AMS-CLI.git"
+  },
+  "engines": {
+    "node": ">=15.0"
   },
   "author": "Dippy@8950",
   "license": "MIT",
