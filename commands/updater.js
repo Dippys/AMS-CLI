@@ -3,11 +3,11 @@ function init() {
 }
 
 module.exports = {
-    name: 'Setup Wizzard',
-    description: 'Setup the wizzard',
+    name: 'Updater',
+    description: 'Java Launcher',
     version : '1.0.0',
     author : 'Dippys',
-    position : 2,
+    position : 3,
     execute() {
         init()
     }

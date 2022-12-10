@@ -1,8 +1,51 @@
 const fs = require('fs');
 const https = require('https');
-const unzipper = require('unzipper');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
+const data = require('../package.json');
+const main = require('./main');
+
+const logo = ` $$$$$$\\  $$\\      $$\\  $$$$$$\\         $$$$$$\\  $$\\       $$$$$$\\ 
+$$  __$$\\ $$$\\    $$$ |$$  __$$\\       $$  __$$\\ $$ |      \\_$$  _|
+$$ /  $$ |$$$$\\  $$$$ |$$ /  \\__|      $$ /  \\__|$$ |        $$ |  
+$$$$$$$$ |$$\\$$\\$$ $$ |\\$$$$$$\\        $$ |      $$ |        $$ |  
+$$  __$$ |$$ \\$$$  $$ | \\____$$\\       $$ |      $$ |        $$ |  
+$$ |  $$ |$$ |\\$  /$$ |$$\\   $$ |      $$ |  $$\\ $$ |        $$ |  
+$$ |  $$ |$$ | \\_/ $$ |\\$$$$$$  |      \\$$$$$$  |$$$$$$$$\\ $$$$$$\\ 
+\\__|  \\__|\\__|     \\__| \\______/        \\______/ \\________|\\______|
+                                                             ${data.version}
+`;
+
+const init = async () => {
+
+    
+    const packageJson = fs.readFileSync('package.json', 'utf8');
+    const { version } = JSON.parse(packageJson);
+
+    // create a loading screen
+    console.log(logo + '='.repeat(67));
+    console.log('Checking for updates...');
+    console.log('Please wait...');
+    console.log('='.repeat(67));
+    // check for updates
+    https.get('https://raw.githubusercontent.com/Dippys/AMS-CLI/main/package.json?token=GHSAT0AAAAAAB4CYTACUE7ZQKYR7GMPS4LSY4TL2IA', (res) => {
+        let data = '';
+        res.on('data', (chunk) => {
+            data += chunk;
+        });
+        res.on('end', () => {
+            const latest = JSON.parse(data).version;
+            if (latest !== version) {
+                downloadAndExtractZip();
+            } else {
+                main.execute();
+            }
+        });
+    }).on('error', (err) => {
+        console.log('Error: ' + err.message);
+    });
+
+}
 
 const downloadAndExtractZip = async () => {
     const url = 'https://github.com/Dippys/AMS-CLI/archive/refs/heads/main.zip';
@@ -60,8 +103,14 @@ const downloadAndExtractZip = async () => {
         }
     });
     
-  };
+};
 
 module.exports = {
-    downloadAndExtractZip,
+    name: 'Updater',
+    description: 'Updater for AMS-CLI',
+    version : '1.0.0',
+    author : 'Dippys',
+    execute() {
+    init();
+    }
   };
