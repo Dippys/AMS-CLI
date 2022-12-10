@@ -1,5 +1,7 @@
+const Updater = require('../helpers/updater')
+
 function init() {
-    console.log('Hello World')
+    Updater.execute()
 }
 
 module.exports = {
